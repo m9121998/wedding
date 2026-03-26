@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Happy Wedding - Nguyễn Đức Mạnh &amp; Lê Hoàng Kim Ngân</title>
+  <meta name="description" content="Chúng mình đã lấy nhau rồi mọi người ưiiiiiiiii" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <style>
+    @font-face {
+      font-family: "Geist";
+      src: url("https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #f7f4ef;
+      --bg-card: #ffffff;
+      --text: #171717;
+      --text-muted: #525252;
+      --accent: #8b5a5a;
+      --accent-soft: rgba(139, 90, 90, 0.14);
+      --line: rgba(23, 23, 23, 0.08);
+      --shadow: 0 20px 60px rgba(23, 23, 23, 0.08);
+      --radius: 12px;
+      --font: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-script: "Great Vibes", cursive;
+      --font-script-alt: "Dancing Script", cursive;
+      --font-serif: "Playfair Display", Georgia, serif;
+      --banner-gold: #f5e6a8;
+      --banner-gold-bright: #fff3a0;
+      --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+      --text-xs: 0.6875rem;
+      --text-sm: 0.8125rem;
+      --text-base: 0.9375rem;
+      --text-md: 1.0625rem;
+      --text-lg: 1.25rem;
+      --text-xl: 1.5rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: var(--text-base);
+      font-weight: 400;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.invite-pending {
+      overflow: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Mở thiệp --- */
+    .invite-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(165deg, #f5f0ea 0%, #ebe4dc 45%, #e0d8cf 100%);
+      transition: opacity 0.55s var(--ease), visibility 0.55s;
+    }
+
+    .invite-gate--done {
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .invite-gate__inner {
+      text-align: center;
+      max-width: 24rem;
+    }
+
+    .invite-gate__eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 0.75rem;
+    }
+
+    .invite-gate__names {
+      font-family: var(--font-script-alt);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 0 0 5rem;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .envelope-wrap {
+      perspective: 800px;
+      margin: 0 auto 1.75rem;
+      width: min(17rem, 85vw);
+    }
+
+    .envelope {
+      position: relative;
+      aspect-ratio: 1.35 / 1;
+      filter: drop-shadow(0 12px 28px rgba(42, 42, 42, 0.12));
+    }
+
+    .envelope__body {
+      position: absolute;
+      inset: 18% 0 0;
+      background: linear-gradient(180deg, #fffefb 0%, #f4ebe4 100%);
+      border-radius: 4px;
+      border: 1px solid rgba(139, 90, 90, 0.15);
+    }
+
+    .envelope__pocket {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 58%;
+      background: linear-gradient(180deg, #e8dfd6 0%, #ddd3c8 100%);
+      clip-path: polygon(0 0, 50% 42%, 100% 0, 100% 100%, 0 100%);
+      border-radius: 0 0 4px 4px;
+      border: 1px solid rgba(139, 90, 90, 0.12);
+      border-top: none;
+    }
+
+    .envelope__flap {
+      position: absolute;
+      top: 18%;
+      left: 0;
+      right: 0;
+      height: 46%;
+      background: linear-gradient(180deg, #efe6de 0%, #e3d8cf 100%);
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      transform-origin: 50% 0;
+      border-left: 1px solid rgba(139, 90, 90, 0.12);
+      border-right: 1px solid rgba(139, 90, 90, 0.12);
+      transition: transform 0.65s var(--ease);
+      z-index: 2;
+    }
+
+    .envelope__heart {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 2.25rem;
+      height: 2.25rem;
+      color: var(--accent);
+      opacity: 0.9;
+      transition: opacity 0.35s, transform 0.35s var(--ease);
+    }
+
+    .invite-gate--opening .envelope__flap {
+      transform: rotateX(-178deg);
+    }
+
+    .invite-gate--opening .envelope__heart {
+      opacity: 0;
+      transform: translate(-50%, -80%) scale(0.85);
+    }
+
+    .btn-open-invite {
+      font-family: var(--font);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 999px;
+      padding: 0.9rem 1.85rem;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(139, 90, 90, 0.3);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .btn-open-invite:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(139, 90, 90, 0.38);
+    }
+
+    .btn-open-invite:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .invite-gate__hint {
+      margin: 1rem 0 0;
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .envelope__flap,
+      .envelope__heart {
+        transition: none;
+      }
+      .invite-gate--opening .envelope__flap {
+        transform: rotateX(-178deg);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .invite-gate {
+        transition: none;
+      }
+    }
+
+    /* --- Banner hero (chữ script + tuyết/bokeh) --- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.25rem 12vh;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.45) 100%),
+        url("Resource/Banner.jpg") center center / cover no-repeat;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero__bg {
+        background-position: 36% center;
+      }
+    }
+
+    .hero__bokeh {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.55) 0%, transparent 5px),
+        radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.45) 0%, transparent 4px),
+        radial-gradient(circle at 42% 60%, rgba(255, 255, 255, 0.35) 0%, transparent 6px),
+        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.5) 0%, transparent 5px),
+        radial-gradient(circle at 25% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 4px),
+        radial-gradient(circle at 90% 45%, rgba(255, 255, 255, 0.38) 0%, transparent 5px),
+        radial-gradient(circle at 8% 55%, rgba(255, 255, 255, 0.42) 0%, transparent 4px),
+        radial-gradient(circle at 55% 35%, rgba(255, 255, 255, 0.33) 0%, transparent 7px);
+      animation: bokeh-pulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes bokeh-pulse {
+      0% {
+        opacity: 0.85;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__bokeh {
+        animation: none;
+      }
+    }
+
+    /*
+     * Mưa tuyết phủ cả trang — phải nằm TRÊN main/hero (pointer-events: none)
+     * và DƯỚI cổng mở thiệp (z-index: 10000) để vẫn bấm được nút "Mở thiệp".
+     */
+    .global-precip {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .flake {
+      position: absolute;
+      top: -12px;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+      animation-name: snow-drift;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      user-select: none;
+    }
+
+    .flake--soft {
+      opacity: 0.65;
+      filter: blur(0.5px);
+    }
+
+    @keyframes snow-drift {
+      0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate3d(var(--drift, 24px), 105vh, 0) rotate(360deg);
+      }
+    }
+
+    .rain-streak {
+      position: absolute;
+      width: 1px;
+      height: 14px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.55), transparent);
+      top: -20px;
+      animation-name: rain-fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rain-fall {
+      0% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0.35;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .global-precip {
+        display: none;
+      }
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 3;
+      max-width: 42rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .hero__title-script {
+      font-family: var(--font-script);
+      font-size: clamp(3rem, 12vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      margin: 0 0 0.35rem;
+      color: var(--banner-gold-bright);
+      text-shadow:
+        0 0 20px rgba(255, 235, 150, 0.45),
+        0 2px 12px rgba(0, 0, 0, 0.35);
+      letter-spacing: 0.02em;
+    }
+
+    .hero__names-script {
+      font-family: var(--font-script-alt);
+      font-size: clamp(1.15rem, 3.8vw, 1.75rem);
+      font-weight: 500;
+      margin: 0 0 0.65rem;
+      color: #fff;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+      line-height: 1.35;
+    }
+
+    .hero__names-script .hero__names-amp {
+      display: block;
+      font-size: 0.92em;
+      margin: 0.15rem 0;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero__date {
+      font-family: var(--font);
+      font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      font-size: var(--text-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.75);
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(6px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-hint {
+        animation: none;
+      }
+    }
+
+    /* --- Chú rể & Cô dâu --- */
+    .couple {
+      position: relative;
+      padding: 3.5rem 1.25rem 3.25rem;
+      overflow: hidden;
+    }
+
+    .couple__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(247, 244, 239, 0.88) 0%, rgba(247, 244, 239, 0.93) 100%),
+        url("https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1600&q=80") center center / cover no-repeat;
+      z-index: 0;
+    }
+
+    .couple__particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 3px),
+        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 4px),
+        radial-gradient(circle at 75% 30%, rgba(255, 255, 255, 0.45) 0%, transparent 3px),
+        radial-gradient(circle at 90% 75%, rgba(255, 255, 255, 0.35) 0%, transparent 5px),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, transparent 6px);
+    }
+
+    .couple__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .couple__icon {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto 1rem;
+      color: #1a1a1a;
+      opacity: 0.85;
+    }
+
+    .couple__heading {
+      font-family: var(--font-script-alt);
+      font-size: clamp(1.75rem, 5vw, 2.35rem);
+      font-weight: 600;
+      text-align: center;
+      color: #3d3d3d;
+      margin: 0 0 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .couple__photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 540px) {
+      .couple__photos {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .couple__photo {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      aspect-ratio: 3 / 4;
+    }
+
+    .couple__photo--groom,
+    .couple__photo--bride {
+      transition: transform 0.9s var(--ease), opacity 0.9s var(--ease);
+      will-change: transform, opacity;
+    }
+
+    .couple__photo--groom {
+      transform: translateX(-46px);
+      opacity: 0;
+    }
+
+    .couple__photo--bride {
+      transform: translateX(46px);
+      opacity: 0;
+    }
+
+    .couple__photo.is-inview {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .couple__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .couple__caption {
+      font-family: var(--font-script-alt);
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      color: #333;
+      margin: 0 0 1.25rem;
+    }
+
+    .couple__info {
+      font-family: var(--font);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .couple__info p {
+      margin: 0 0 0.65rem;
+    }
+
+    .couple__info strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.25rem 1.5rem;
+    }
+
+    .section--tight {
+      padding-top: 1.75rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    @media (min-width: 480px) {
+      .card {
+        padding: 2rem 1.75rem;
+      }
+    }
+
+    .section-title {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-align: center;
+      margin: 0 0 0.3rem;
+      font-family: var(--font);
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 1.5rem;
+      opacity: 0.4;
+    }
+
+    /* --- Lời ngỏ (theo mẫu thiệp) --- */
+    .loi-ngo {
+      max-width: 600px;
+      margin: 0.75rem auto 0;
+      padding: 2.25rem 1.5rem 1.25rem;
+      text-align: center;
+      background: #fff;
+      border-radius: 14px;
+    }
+
+    .loi-ngo__ornament {
+      display: block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin: 0 auto 1.1rem;
+      color: #9ca3af;
+      opacity: 0.9;
+    }
+
+    .loi-ngo__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2.8vw, 1.2rem);
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: #4b5563;
+      margin: 0 0 1.5rem;
+    }
+
+    .loi-ngo__text {
+      margin: 0 auto 1.25rem;
+      max-width: 36rem;
+      font-family: var(--font);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      line-height: 1.9;
+      color: #6b7280;
+    }
+
+    .loi-ngo__figure {
+      margin: 0 auto;
+      max-width: 520px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+    }
+
+    .loi-ngo__figure img {
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    /* Dải full-bleed: nền webp cho phần “bên ngoài” (vùng margin hai bên trang) */
+    .events-strip {
+      margin: 0.75rem 0 0;
+      padding: 1.75rem 1rem 2rem;
+      background-color: #ebe6df;
+      background-image:
+        linear-gradient(180deg, rgba(255, 252, 248, 0.72) 0%, rgba(247, 244, 239, 0.78) 45%, rgba(235, 228, 218, 0.82) 100%),
+        url("https://s3-hcm-r2.s3cloud.vn/thiepcuoi-mehappy/admin/assets/395221e2-cc67-4758-969b-88634a471910-full.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @media (min-width: 720px) {
+      .events-strip {
+        padding: 2rem 1.5rem 2.25rem;
+      }
+    }
+
+    /* --- Sự kiện cưới — khối nội dung bo góc trên nền strip --- */
+    .events-showcase {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2.15rem 1.25rem 2.2rem;
+      background: rgba(255, 255, 255, 0.58);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    @supports (backdrop-filter: blur(8px)) {
+      .events-showcase {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+    }
+
+    .events-showcase__icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      margin: 0 auto 0.85rem;
+      color: #6b7280;
+    }
+
+    .events-showcase__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 2.8vw, 1.2rem);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-align: center;
+      color: #4b5563;
+      margin: 0 0 0.5rem;
+    }
+
+    .events-showcase__sub {
+      text-align: center;
+      font-family: var(--font);
+      font-size: var(--text-sm);
+      color: #9ca3af;
+      margin: 0 0 2.5rem;
+    }
+
+    /* Hai thẻ + một nút bản đồ chung ở giữa (desktop: 3 cột) */
+    .events-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem 1rem;
+      align-items: start;
+    }
+
+    @media (min-width: 700px) {
+      .events-layout {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 1.25rem 0.85rem;
+        align-items: center;
+      }
+    }
+
+    .events-map-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0;
+    }
+
+    @media (min-width: 700px) {
+      .events-map-cta {
+        min-width: 7.5rem;
+        padding: 0 0.35rem;
+      }
+    }
+
+    .event-card {
+      position: relative;
+      background: linear-gradient(180deg, #7d7d7d 0%, #6e6e6e 100%);
+      border-radius: 6px;
+      padding: 4.6rem 1.35rem 1.35rem;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .event-card__photo {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -52%);
+      width: min(58%, 205px);
+      max-height: 120px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+      background: #e5e5e5;
+    }
+
+    .event-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      display: block;
+    }
+
+    /* Sửa 10: kéo ảnh event lên để không che mặt */
+    @media (min-width: 700px) {
+      .event-card__photo--up {
+        transform: translate(-50%, -58%);
+        max-height: 135px;
+        will-change: transform;
+      }
+
+      .event-card__photo--up img {
+        object-position: 50% 26%;
+      }
+    }
+
+    .event-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #d4bc7d;
+      margin: 0.2rem 0 1rem;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+      text-decoration-color: rgba(212, 188, 125, 0.85);
+    }
+
+    .event-card__row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      margin-bottom: 0.65rem;
+      font-family: var(--font);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .event-card__row span {
+      --event-row-width: 31ch;
+      display: block;
+      flex: 0 0 var(--event-row-width);
+      width: var(--event-row-width);
+      max-width: var(--event-row-width);
+      min-height: calc(1.5em * 2);
+    }
+
+    .event-card__row svg {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .events-map-cta__btn {
+      display: block;
+      width: min(100%, 11.5rem);
+      margin: 0;
+      padding: 0.65rem 1rem;
+      font-family: var(--font);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #333;
+      background: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      transition: background 0.2s var(--ease), transform 0.15s var(--ease);
+    }
+
+    .events-map-cta__btn:hover {
+      background: #f5f5f5;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile: ảnh nhô lên (-52%) đè chữ phụ & nút bản đồ (do thứ tự vẽ DOM) — chừa khoảng + z-index + giảm nhô */
+    @media (max-width: 699px) {
+      .events-showcase__sub {
+        margin-bottom: clamp(2rem, 6vw, 2.75rem);
+        position: relative;
+        z-index: 2;
+      }
+
+      .events-layout {
+        position: relative;
+        z-index: 1;
+        padding-top: clamp(2.25rem, 9vw, 3.5rem);
+        gap: 1.5rem 1rem;
+      }
+
+      /* Thẻ “Lễ Thành Hôn” đứng sau nút bản đồ trong DOM → ảnh vẽ đè nút nếu không tách khoảng / z-index */
+      .events-layout > .event-card:nth-child(3) {
+        position: relative;
+        z-index: 0;
+        margin-top: clamp(2.5rem, 11vw, 4rem);
+      }
+
+      .events-map-cta {
+        position: relative;
+        z-index: 3;
+      }
+
+      .event-card__photo {
+        transform: translate(-50%, -38%);
+        max-height: 100px;
+        width: min(52%, 180px);
+      }
+
+      /* Trên mobile: ảnh event riêng cho 2 sự kiện để tránh mất phần mặt */
+      .event-card__photo--up {
+        transform: translate(-50%, -42%);
+        max-height: 112px;
+      }
+
+      .event-card__photo--up img {
+        object-position: 50% 28%;
+      }
+
+      .event-card {
+        padding-top: 4rem;
+      }
+
+      .event-card__row span {
+        --event-row-width: min(100%, 34ch);
+      }
+    }
+
+    /* --- Câu chuyện tình yêu --- */
+    .love-story {
+      max-width: 900px;
+      margin: 0.75rem auto 0;
+      padding: 2.3rem 1.25rem 0.75rem;
+      text-align: center;
+      background: #fff8f8;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .love-story__title {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-script-alt);
+      font-size: clamp(2rem, 5.2vw, 3rem);
+      font-weight: 600;
+      color: #d46b76;
+    }
+
+    .love-story__sub {
+      margin: 0 0 1.8rem;
+      color: #585858;
+      font-size: var(--text-md);
+    }
+
+    .love-story__list {
+      display: grid;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .love-story__item {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .love-story__card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 1rem 1rem 0.9rem;
+      text-align: center;
+    }
+
+    .love-story__card h3 {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-script-alt);
+      font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+      color: #e2676f;
+    }
+
+    .love-story__date {
+      margin: 0 0 0.45rem;
+      font-size: var(--text-sm);
+      color: #5c5c5c;
+    }
+
+    .love-story__desc {
+      margin: 0;
+      color: #4f4f4f;
+      line-height: 1.6;
+      font-size: var(--text-sm);
+    }
+
+    .love-story__photo {
+      width: clamp(120px, 22vw, 170px);
+      height: clamp(120px, 22vw, 170px);
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+      border: 4px solid #fff;
+    }
+
+    .love-story__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .love-story__item:nth-child(even) .love-story__card {
+      grid-column: 3;
+    }
+
+    .love-story__item:nth-child(even) .love-story__photo {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    @media (max-width: 760px) {
+      .love-story {
+        padding: 2rem 1rem 0.5rem;
+      }
+
+      .love-story__item {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .love-story__photo {
+        margin: 0 auto;
+      }
+
+      .love-story__item:nth-child(even) .love-story__card,
+      .love-story__item:nth-child(even) .love-story__photo {
+        grid-column: auto;
+      }
+    }
+
+    /* --- Lịch cưới + đếm ngược --- */
+    .calendar-section {
+      max-width: 500px;
+      margin: 0.75rem auto 0;
+      padding: 2.15rem 1.25rem 2.15rem;
+      text-align: center;
+      background: #fff;
+      border-radius: 14px;
+    }
+
+    .calendar-section__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1.15rem 0.45rem 0.85rem;
+      margin-bottom: 1rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: #5c4a3a;
+      background: linear-gradient(180deg, #e8d5b7 0%, #d9c4a3 100%);
+      border: 1px solid rgba(180, 150, 110, 0.35);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .calendar-section__badge svg {
+      flex-shrink: 0;
+      width: 1.15rem;
+      height: 1.15rem;
+      color: #e91e8c;
+    }
+
+    .calendar-section__icon-cal {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto 1.25rem;
+      color: #e91e8c;
+    }
+
+    .calendar-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.25rem 1rem 1rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      margin-bottom: 1.25rem;
+    }
+
+    .calendar-card__title {
+      font-family: var(--font);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0.2rem 0 1rem;
+      color: var(--text);
+    }
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: capitalize;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.2rem;
+    }
+
+    .calendar-cell {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .calendar-cell--muted {
+      color: transparent;
+      pointer-events: none;
+    }
+
+    /* Trái tim đỏ phía sau, số màu trắng (giống ô ngày được chọn trên thiệp mẫu) */
+    .calendar-cell--wedding {
+      font-weight: 700;
+    }
+
+    .calendar-cell--wedding::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -52%);
+      width: 2.85em;
+      height: 2.55em;
+      min-width: 40px;
+      min-height: 36px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e53935' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E")
+        center / contain no-repeat;
+      z-index: 0;
+    }
+
+    .calendar-cell__num {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      font-weight: 700;
+    }
+
+    .calendar-detail {
+      font-family: var(--font);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 0.35rem;
+      line-height: 1.5;
+    }
+
+    .calendar-lunar {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin: 0 0 1.75rem;
+      line-height: 1.45;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .countdown__item {
+      text-align: center;
+    }
+
+    .countdown__num {
+      font-family: var(--font);
+      font-size: clamp(1.35rem, 4vw, 1.65rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.2;
+      display: inline-block;
+      min-width: 2.35rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .countdown__label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: #888;
+      margin-top: 0.45rem;
+      text-transform: none;
+    }
+
+    .gallery-section {
+      max-width: 100%;
+      width: 100%;
+      margin: 0.75rem auto 0;
+      padding: 2.15rem 1rem 2rem;
+      border-radius: 14px;
+    }
+
+    .gallery-section__ornament {
+      display: block;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin: 0 auto 0.75rem;
+      color: var(--accent);
+      opacity: 0.75;
+    }
+
+    .gallery-section__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 3vw, 1.45rem);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-align: center;
+      color: #3a3a3a;
+      margin: 0 0 1.5rem;
+    }
+
+    /* --- Gallery mới (Sửa 9): lưới đều kích cỡ + khung nhỏ --- */
+    .gallery-frame {
+      max-width: 80vw;
+      width: 100%;
+      margin: 0 auto;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.6);
+      content-visibility: auto;
+      contain-intrinsic-size: 520px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .gallery-tile {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #e8e4df;
+      aspect-ratio: 3 / 4; /* gần giống ảnh chân dung để gương mặt rõ hơn */
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      content-visibility: auto;
+      contain-intrinsic-size: 220px 293px;
+      contain: layout paint;
+    }
+
+    .gallery-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 24%;
+      cursor: pointer;
+      display: block;
+      background: #e8e4df;
+    }
+
+    .gallery-tile__img--pending {
+      opacity: 0.92;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .gallery-tile img {
+        transition: transform 0.22s var(--ease);
+      }
+
+      .gallery-tile:hover img {
+        transform: scale(1.02);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .gallery-frame {
+        padding: 10px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /*
+     * Mosaic: lưới 12×12 + gap đồng đều; aspect-ratio 1 → mỗi ô vuông, cạnh khớp nhau.
+     * Với max-width 754px, gap 8px: (754 − 11×8) / 12 ≈ 55.5px mỗi cạnh ô (hero ≈ 6 ô + 5 gap).
+     * Căn nội dung từng ảnh: đặt --gallery-op trên ô (vd. 50% 22% hoặc 120px 20%) trong HTML.
+     */
+    .gallery-mosaic {
+      --gallery-mosaic-gap: 8px;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-rows: repeat(12, minmax(0, 1fr));
+      grid-template-areas:
+        "lt lt lt mt mt mt mt mt mt rt rt rt"
+        "lt lt lt mt mt mt mt mt mt rt rt rt"
+        "lt lt lt mt mt mt mt mt mt rt rt rt"
+        "l1 l1 l2 he he he he he he rm rm rm"
+        "l1 l1 l2 he he he he he he rm rm rm"
+        "l1 l1 l2 he he he he he he rm rm rm"
+        "lb lb lb he he he he he he rm rm rm"
+        "lb lb lb he he he he he he rm rm rm"
+        "lb lb lb he he he he he he rb rb rb"
+        "lb lb lb mb mb mb mb mb mb rb rb rb"
+        "lb lb lb mb mb mb mb mb mb rb rb rb"
+        "lb lb lb mb mb mb mb mb mb rb rb rb";
+      gap: var(--gallery-mosaic-gap);
+      max-width: 754px;
+      width: 100%;
+      margin-inline: auto;
+      aspect-ratio: 1;
+    }
+
+    .gallery-mosaic__cell {
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #e8e4df;
+    }
+
+    .gallery-mosaic__cell img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--gallery-op, 50% 24%);
+      transition: transform 0.45s var(--ease);
+    }
+
+    .gallery-mosaic__cell:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-mosaic__cell--lt {
+      grid-area: lt;
+    }
+
+    .gallery-mosaic__cell--l1 {
+      grid-area: l1;
+    }
+
+    .gallery-mosaic__cell--l2 {
+      grid-area: l2;
+    }
+
+    .gallery-mosaic__cell--lb {
+      grid-area: lb;
+    }
+
+    .gallery-mosaic__cell--mt {
+      grid-area: mt;
+    }
+
+    .gallery-mosaic__cell--hero {
+      grid-area: he;
+    }
+
+    .gallery-mosaic__cell--mb {
+      grid-area: mb;
+    }
+
+    .gallery-mosaic__cell--rt {
+      grid-area: rt;
+    }
+
+    .gallery-mosaic__cell--rm {
+      grid-area: rm;
+    }
+
+    .gallery-mosaic__cell--rb {
+      grid-area: rb;
+    }
+
+    @media (max-width: 719px) {
+      .gallery-mosaic {
+        max-width: 100%;
+        --gallery-mosaic-gap: 6px;
+      }
+    }
+
+    /* Phần còn lại: lưới dày + nhiều kích thước */
+    .gallery-section__more {
+      margin-top: 12px;
+      max-width: 754px;
+      width: 100%;
+      margin-inline: auto;
+    }
+
+    .gallery-masonry {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 52px;
+      gap: 8px;
+      grid-auto-flow: dense;
+    }
+
+    .gallery-masonry__item {
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #e8e4df;
+    }
+
+    .gallery-masonry__item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--gallery-op, 50% 24%);
+      transition: transform 0.45s var(--ease);
+    }
+
+    .gallery-masonry__item:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-masonry__item--sz1 {
+      grid-column: span 6;
+      grid-row: span 4;
+    }
+
+    .gallery-masonry__item--sz2 {
+      grid-column: span 3;
+      grid-row: span 5;
+    }
+
+    .gallery-masonry__item--sz3 {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+
+    .gallery-masonry__item--sz4 {
+      grid-column: span 3;
+      grid-row: span 4;
+    }
+
+    .gallery-masonry__item--sz5 {
+      grid-column: span 3;
+      grid-row: span 3;
+    }
+
+    .gallery-masonry__item--sz6 {
+      grid-column: span 6;
+      grid-row: span 5;
+    }
+
+    .gallery-masonry__item--sz7 {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+
+    .gallery-masonry__item--sz8 {
+      grid-column: span 3;
+      grid-row: span 3;
+    }
+
+    .gallery-masonry__item--sz9 {
+      grid-column: span 6;
+      grid-row: span 4;
+    }
+
+    .gallery-masonry__item--sz10 {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+
+    @media (min-width: 720px) {
+      .gallery-masonry {
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 58px;
+        gap: 8px;
+      }
+
+      .gallery-masonry__item--sz1 {
+        grid-column: span 5;
+        grid-row: span 5;
+      }
+
+      .gallery-masonry__item--sz2 {
+        grid-column: span 4;
+        grid-row: span 6;
+      }
+
+      .gallery-masonry__item--sz3 {
+        grid-column: span 8;
+        grid-row: span 4;
+      }
+
+      .gallery-masonry__item--sz4 {
+        grid-column: span 3;
+        grid-row: span 5;
+      }
+
+      .gallery-masonry__item--sz5 {
+        grid-column: span 4;
+        grid-row: span 4;
+      }
+
+      .gallery-masonry__item--sz6 {
+        grid-column: span 6;
+        grid-row: span 6;
+      }
+
+      .gallery-masonry__item--sz7 {
+        grid-column: span 12;
+        grid-row: span 3;
+      }
+
+      .gallery-masonry__item--sz8 {
+        grid-column: span 3;
+        grid-row: span 3;
+      }
+
+      .gallery-masonry__item--sz9 {
+        grid-column: span 7;
+        grid-row: span 5;
+      }
+
+      .gallery-masonry__item--sz10 {
+        grid-column: span 5;
+        grid-row: span 4;
+      }
+    }
+
+    .cta-wrap {
+      text-align: center;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.65rem;
+      font-family: var(--font);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(139, 90, 90, 0.28);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(139, 90, 90, 0.35);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      padding: 0 1.5rem 3rem;
+    }
+
+    .footer-note strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Nhạc nền YouTube (cùng video với link YouTube Music) */
+    .yt-bg-music-host {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      left: -9999px;
+      top: 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .music-float-btn {
+      position: fixed;
+      z-index: 9998;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(139, 90, 90, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease), transform 0.2s var(--ease);
+    }
+
+    body:not(.invite-pending) .music-float-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .music-float-btn:hover {
+      transform: scale(1.06);
+    }
+
+    .music-float-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .music-float-btn--off {
+      opacity: 0.72;
+    }
+
+    /* --- Gallery lightbox --- */
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(0, 0, 0, 0.84);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .gallery-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .gallery-lightbox__img {
+      width: auto;
+      max-width: min(96vw, 1180px);
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+    }
+
+    .gallery-lightbox__close {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="invite-pending">
+  <div
+    id="invite-gate"
+    class="invite-gate"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="invite-gate-title"
+  >
+    <div class="invite-gate__inner">
+      <p class="invite-gate__eyebrow">Wedding invitation</p>
+      <p id="invite-gate-title" class="invite-gate__names">
+        Nguyễn Đức Mạnh <br />
+        <span style="color: var(--accent); font-weight: 600">&amp;</span><br />
+        Lê Hoàng Kim Ngân
+      </p>
+      <div class="envelope-wrap" aria-hidden="true">
+        <div class="envelope">
+          <div class="envelope__body"></div>
+          <div class="envelope__pocket"></div>
+          <div class="envelope__flap"></div>
+          <svg class="envelope__heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+        </div>
+      </div>
+      <button type="button" class="btn-open-invite" id="btn-open-invite">Mở thiệp</button>
+      <p class="invite-gate__hint">Nhấn để xem nội dung thiệp</p>
+    </div>
+  </div>
+
+  <div class="global-precip" id="global-precip" aria-hidden="true"></div>
+
+  <header class="hero" role="banner">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__bokeh" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__title-script">Happy wedding</p>
+      <p class="hero__names-script">
+        Nguyễn Đức Mạnh
+        <span class="hero__names-amp">&amp;</span>
+        Lê Hoàng Kim Ngân
+      </p>
+      <p class="hero__date">06/04/2026</p>
+    </div>
+    <p class="scroll-hint">Cuộn xuống</p>
+  </header>
+
+  <main>
+    <section class="couple reveal" aria-labelledby="couple-heading">
+      <div class="couple__bg" aria-hidden="true"></div>
+      <div class="couple__particles" aria-hidden="true"></div>
+      <div class="couple__inner">
+        <svg class="couple__icon" viewBox="0 0 88 72" fill="currentColor" aria-hidden="true">
+          <circle cx="28" cy="13" r="9" />
+          <path d="M28 24L18 70h7l3-26 3 26h7L34 24h-6z" />
+          <circle cx="58" cy="13" r="9" />
+          <path d="M58 24L46 70h7.5l4-28 4 28H70L64 24h-6z" />
+        </svg>
+        <h2 id="couple-heading" class="couple__heading">Chú Rể &amp; Cô Dâu</h2>
+        <div class="couple__photos">
+          <figure class="couple__photo couple__photo--groom">
+            <img src="Resource/CR.JPG" alt="Chú rể Nguyễn Đức Mạnh" width="400" height="533" loading="lazy" />
+          </figure>
+          <figure class="couple__photo couple__photo--bride">
+            <img src="Resource/CD.JPG" alt="Cô dâu Lê Hoàng Kim Ngân" width="400" height="533" loading="lazy" />
+          </figure>
+        </div>
+        <p class="couple__caption">Nguyễn Đức Mạnh — Lê Hoàng Kim Ngân</p>
+        <div class="couple__info">
+          <p><strong>Địa chỉ nhà trai:</strong> 18, Ngách 91/6, Ngõ 91 Nguyễn Văn Trỗi, Phương Liệt, Hà Nội</p>
+          <p><strong>Địa chỉ nhà gái:</strong> 555, Xã Vân Du, tỉnh Thanh Hoá</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="loi-ngo reveal" aria-labelledby="loi-ngo-heading">
+      <svg class="loi-ngo__ornament" viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <path d="M32 8c-8 6-14 14-18 22 6 4 12 2 18-4m0 0c6 6 12 8 18 4-4-8-10-16-18-22" />
+        <path d="M32 14v22M24 22l8 6 8-6" opacity="0.65" />
+      </svg>
+      <h2 id="loi-ngo-heading" class="loi-ngo__title">LỜI NGỎ</h2>
+      <p class="loi-ngo__text">
+        Cảm ơn bạn đã dành tình cảm cho chúng mình. Chúng mình hiểu rằng ai cũng bận rộn với công việc, cuộc sống và gia đình. Nhưng sẽ thật ý nghĩa nếu trong ngày trọng đại này có sự hiện diện của bạn và những người thân yêu. Sự có mặt của bạn là niềm vui, góp phần làm cho ngày hạnh phúc của chúng mình thêm trọn vẹn. Chúng mình rất mong được gặp bạn để cùng chia sẻ khoảnh khắc đặc biệt này. Một lần nữa, chân thành cảm ơn tình cảm của tất cả mọi người ❤️
+      </p>
+      <figure class="loi-ngo__figure">
+        <img src="Resource/ln.JPG" alt="Ảnh lời ngỏ" width="900" height="600" loading="lazy" />
+      </figure>
+    </section>
+
+    <div class="events-strip">
+    <section class="events-showcase reveal" aria-labelledby="event-heading">
+      <svg class="events-showcase__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M3 10h18M8 3v4M16 3v4" />
+        <path d="M7 14h2M11 14h2M15 14h2M7 17h2M11 17h2" stroke-linecap="round" />
+      </svg>
+      <h2 id="event-heading" class="events-showcase__title">SỰ KIỆN CƯỚI</h2>
+      <p class="events-showcase__sub">Rất hân hạnh được đón tiếp mọi người!</p>
+      <div class="events-layout">
+        <article class="event-card">
+          <div class="event-card__photo event-card__photo--up">
+            <img src="Resource/IMG_6727.JPG" alt="" width="200" height="150" loading="lazy" />
+          </div>
+          <h3 class="event-card__name">Lễ Ăn Hỏi</h3>
+          <div class="event-card__row event-card__row--time">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" stroke-linecap="round" />
+            </svg>
+            <span>07 giờ 00 phút, Thứ 2, ngày 06 - 04 - 2026<br />(Âm lịch: 19/02 năm Bính Ngọ)</span>
+          </div>
+          <div class="event-card__row event-card__row--address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z" stroke-linecap="round" />
+              <circle cx="12" cy="11" r="2.5" fill="currentColor" stroke="none" />
+            </svg>
+            <span>555, Xã Vân Du, tỉnh Thanh Hoá</span>
+          </div>
+        </article>
+        <div class="events-map-cta">
+          <button
+            type="button"
+            class="events-map-cta__btn"
+            onclick="window.open('https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent('18 Ngách 91/6 Ngõ 91 Nguyễn Văn Trỗi Phương Liệt Hà Nội') + '&destination=' + encodeURIComponent('Trung tâm tiệc cưới Cung Xuân 1 Võ Thị Sáu Thanh Nhàn Hà Nội'), '_blank', 'noopener,noreferrer')"
+          >
+            Xem bản đồ
+          </button>
+        </div>
+        <article class="event-card">
+          <div class="event-card__photo event-card__photo--up">
+            <img src="Resource/IMG_8321 phong.JPG" alt="" width="200" height="150" loading="lazy" />
+          </div>
+          <h3 class="event-card__name">Lễ Thành Hôn</h3>
+          <div class="event-card__row event-card__row--time">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" stroke-linecap="round" />
+            </svg>
+            <span>11 giờ 30 phút, Thứ 2, ngày 06 - 04 - 2025<br />(Âm lịch: 19/02 năm Bính Ngọ)</span>
+          </div>
+          <div class="event-card__row event-card__row--address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z" stroke-linecap="round" />
+              <circle cx="12" cy="11" r="2.5" fill="currentColor" stroke="none" />
+            </svg>
+            <span>Tầng 2, Sảnh Tràng An, Trung tâm sự kiện và tiệc cưới Cung Xuân. Số 1 - Võ Thị Sáu, Thanh Nhàn, Hà Nội</span>
+          </div>
+        </article>
+      </div>
+    </section>
+    </div>
+
+    <section class="calendar-section reveal" aria-labelledby="calendar-heading">
+      <div class="calendar-section__badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="2" />
+          <path d="M3 10h18M8 3v4M16 3v4" />
+          <path d="M12 14h.01" fill="currentColor" stroke="none" />
+        </svg>
+        <span id="calendar-heading">LỊCH CƯỚI</span>
+      </div>
+      <div class="calendar-card">
+        <h3 class="calendar-card__title">Tháng 4 / 2026</h3>
+        <div class="calendar-weekdays">
+          <span>Thứ 2</span>
+          <span>Thứ 3</span>
+          <span>Thứ 4</span>
+          <span>Thứ 5</span>
+          <span>Thứ 6</span>
+          <span>Thứ 7</span>
+          <span>CN</span>
+        </div>
+        <div id="calendar-grid-apr" class="calendar-grid" aria-label="Lịch tháng 4 năm 2026"></div>
+      </div>
+      <p class="calendar-detail" id="calendar-wedding-line">11:30 Thứ Hai ngày 06 thg 04, 2026</p>
+      <p class="calendar-lunar">(Tức ngày 19 tháng 02 năm Bính Ngọ 2026)</p>
+      <div class="countdown" id="wedding-countdown" aria-live="polite">
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-days">00</div>
+          <div class="countdown__label">Ngày</div>
+        </div>
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-hours">00</div>
+          <div class="countdown__label">Giờ</div>
+        </div>
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-mins">00</div>
+          <div class="countdown__label">Phút</div>
+        </div>
+        <div class="countdown__item">
+          <div class="countdown__num" id="cd-secs">00</div>
+          <div class="countdown__label">Giây</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section reveal" aria-labelledby="gallery-heading">
+      <svg class="gallery-section__ornament" viewBox="0 0 56 40" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true">
+        <path d="M28 4c-4 8-12 10-16 16 4 2 8 0 12-4m4 4c4 4 8 6 12 4-4-6-12-8-16-16" />
+        <path d="M28 8v24M20 18l8 6 8-6" opacity="0.7" />
+      </svg>
+      <h2 id="gallery-heading" class="gallery-section__title">BỘ SƯU TẬP ẢNH CƯỚI</h2>
+      <div class="gallery-frame" aria-label="Khung ảnh cưới">
+        <div class="gallery-grid" aria-label="Danh sách ảnh cưới">
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_6417.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_6448.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_6523.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_6552.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_6607.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_7485.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_7505.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_7699.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_7860.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8071%20phong.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8207%20phong.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8228.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8383.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8418.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8452.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+          <div class="gallery-tile">
+            <img class="gallery-tile__img gallery-tile__img--pending" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="Resource/IMG_8492.JPG" alt="Ảnh cưới" width="1200" height="1600" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="yt-bg-music-host" aria-hidden="true">
+    <div id="yt-bg-music"></div>
+  </div>
+  <button
+    type="button"
+    class="music-float-btn"
+    id="music-float-btn"
+    hidden
+    aria-pressed="true"
+    aria-label="Tạm dừng nhạc nền"
+    title="Nhạc nền"
+  >
+    ♪
+  </button>
+
+  <footer class="footer-note">
+    <p>
+      <strong>Nguyễn Đức Mạnh &amp; Lê Hoàng Kim Ngân</strong>
+      <a href="" rel="noopener noreferrer"></a>
+    </p>
+  </footer>
+
+  <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+    <button type="button" class="gallery-lightbox__close" id="gallery-lightbox-close" aria-label="Đóng ảnh">×</button>
+    <img class="gallery-lightbox__img" id="gallery-lightbox-img" src="" alt="Ảnh cưới xem toàn màn hình" />
+  </div>
+
+  <script>
+    (function () {
+      var gate = document.getElementById("invite-gate");
+      var btn = document.getElementById("btn-open-invite");
+      var openDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 80 : 1100;
+
+      /* Nhạc nền: video YouTube (ID trùng với music.youtube.com/watch?v=...) */
+      var YT_VIDEO_ID = "aMlx7kKeQXY";
+      var bgMusicPlayer = null;
+      var bgMusicWantsPlay = false;
+      var musicBtn = document.getElementById("music-float-btn");
+
+      function initBgMusicPlayer() {
+        if (typeof YT === "undefined" || !YT.Player) {
+          return;
+        }
+        if (bgMusicPlayer) {
+          return;
+        }
+        var host = document.getElementById("yt-bg-music");
+        if (!host) {
+          return;
+        }
+        bgMusicPlayer = new YT.Player("yt-bg-music", {
+          height: "1",
+          width: "1",
+          videoId: YT_VIDEO_ID,
+          playerVars: {
+            autoplay: 0,
+            loop: 1,
+            playlist: YT_VIDEO_ID,
+            controls: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            rel: 0,
+          },
+          events: {
+            onReady: function () {
+              if (bgMusicWantsPlay) {
+                try {
+                  bgMusicPlayer.unMute();
+                  bgMusicPlayer.playVideo();
+                } catch (e) {}
+              }
+              syncMusicButton();
+            },
+            onStateChange: function () {
+              syncMusicButton();
+            },
+          },
+        });
+      }
+
+      function tryStartBgMusic() {
+        bgMusicWantsPlay = true;
+        if (musicBtn) {
+          musicBtn.hidden = false;
+        }
+        if (bgMusicPlayer && typeof bgMusicPlayer.playVideo === "function") {
+          try {
+            bgMusicPlayer.unMute();
+            bgMusicPlayer.playVideo();
+          } catch (e) {}
+        }
+      }
+
+      function syncMusicButton() {
+        if (!musicBtn || !bgMusicPlayer || typeof bgMusicPlayer.getPlayerState !== "function") {
+          return;
+        }
+        var st = bgMusicPlayer.getPlayerState();
+        var playing = st === YT.PlayerState.PLAYING;
+        musicBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+        musicBtn.setAttribute("aria-label", playing ? "Tạm dừng nhạc nền" : "Bật nhạc nền");
+        musicBtn.classList.toggle("music-float-btn--off", !playing);
+      }
+
+      if (musicBtn) {
+        musicBtn.addEventListener("click", function () {
+          if (!bgMusicPlayer || typeof bgMusicPlayer.getPlayerState !== "function") {
+            return;
+          }
+          var st = bgMusicPlayer.getPlayerState();
+          if (st === YT.PlayerState.PLAYING) {
+            bgMusicPlayer.pauseVideo();
+          } else {
+            bgMusicWantsPlay = true;
+            try {
+              bgMusicPlayer.unMute();
+              bgMusicPlayer.playVideo();
+            } catch (e) {}
+          }
+          syncMusicButton();
+        });
+      }
+
+      window.onYouTubeIframeAPIReady = function () {
+        initBgMusicPlayer();
+        if (bgMusicWantsPlay) {
+          tryStartBgMusic();
+        }
+      };
+
+      if (!window.YT) {
+        var tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        tag.async = true;
+        var first = document.getElementsByTagName("script")[0];
+        if (first && first.parentNode) {
+          first.parentNode.insertBefore(tag, first);
+        } else {
+          document.head.appendChild(tag);
+        }
+      } else if (window.YT && window.YT.Player) {
+        window.onYouTubeIframeAPIReady();
+      }
+
+      function openInvite() {
+        if (!gate || gate.classList.contains("invite-gate--done")) {
+          return;
+        }
+        tryStartBgMusic();
+        gate.classList.add("invite-gate--opening");
+        btn.disabled = true;
+        window.setTimeout(function () {
+          gate.classList.add("invite-gate--done");
+          gate.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("invite-pending");
+        }, openDuration);
+      }
+
+      if (btn) {
+        btn.addEventListener("click", openInvite);
+      }
+
+      /* Mưa tuyết toàn trang */
+      var precip = document.getElementById("global-precip");
+      if (precip && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var i;
+        var flakes = 48;
+        for (i = 0; i < flakes; i++) {
+          var span = document.createElement("span");
+          span.className = "flake" + (i % 3 === 0 ? " flake--soft" : "");
+          span.textContent = i % 4 === 0 ? "\u2744" : "\u2022";
+          span.style.left = Math.random() * 100 + "%";
+          span.style.animationDuration = 7 + Math.random() * 14 + "s";
+          span.style.animationDelay = -Math.random() * 20 + "s";
+          span.style.setProperty("--drift", (Math.random() * 80 - 40) + "px");
+          span.style.fontSize = (0.35 + Math.random() * 0.55) + "rem";
+          precip.appendChild(span);
+        }
+        var drops = 22;
+        for (i = 0; i < drops; i++) {
+          var r = document.createElement("span");
+          r.className = "rain-streak";
+          r.style.left = Math.random() * 100 + "%";
+          r.style.animationDuration = 0.9 + Math.random() * 0.7 + "s";
+          r.style.animationDelay = -Math.random() * 3 + "s";
+          r.style.opacity = String(0.25 + Math.random() * 0.35);
+          precip.appendChild(r);
+        }
+      }
+
+      /* Lịch tháng 4/2026 — highlight ngày 06 (trùng mốc đếm ngược) */
+      function renderWeddingCalendar() {
+        var grid = document.getElementById("calendar-grid-apr");
+        if (!grid) {
+          return;
+        }
+        var year = 2026;
+        var monthIndex = 3;
+        var first = new Date(year, monthIndex, 1);
+        var startPad = (first.getDay() + 6) % 7;
+        var daysInMonth = 30;
+        var weddingDay = 6;
+        var html = [];
+        var i;
+        var d;
+        for (i = 0; i < startPad; i++) {
+          html.push('<div class="calendar-cell calendar-cell--muted"></div>');
+        }
+        for (d = 1; d <= daysInMonth; d++) {
+          if (d === weddingDay) {
+            html.push(
+              '<div class="calendar-cell calendar-cell--wedding"><span class="calendar-cell__num">' +
+                d +
+                "</span></div>"
+            );
+          } else {
+            html.push('<div class="calendar-cell">' + d + "</div>");
+          }
+        }
+        while (html.length % 7 !== 0) {
+          html.push('<div class="calendar-cell calendar-cell--muted"></div>');
+        }
+        grid.innerHTML = html.join("");
+      }
+
+      function pad2(n) {
+        return n < 10 ? "0" + n : String(n);
+      }
+
+      /* Đếm ngược đến 11:30 ngày 06/04/2026 (giờ địa phương trình duyệt) */
+      function tickWeddingCountdown() {
+        var target = new Date(2026, 3, 6, 11, 30, 0);
+        var elD = document.getElementById("cd-days");
+        var elH = document.getElementById("cd-hours");
+        var elM = document.getElementById("cd-mins");
+        var elS = document.getElementById("cd-secs");
+        if (!elD || !elH || !elM || !elS) {
+          return;
+        }
+        var diff = target.getTime() - Date.now();
+        if (diff <= 0) {
+          elD.textContent = elH.textContent = elM.textContent = elS.textContent = "00";
+          return;
+        }
+        var sec = Math.floor(diff / 1000);
+        var days = Math.floor(sec / 86400);
+        sec -= days * 86400;
+        var hours = Math.floor(sec / 3600);
+        sec -= hours * 3600;
+        var mins = Math.floor(sec / 60);
+        sec -= mins * 60;
+        elD.textContent = pad2(days);
+        elH.textContent = pad2(hours);
+        elM.textContent = pad2(mins);
+        elS.textContent = pad2(sec);
+      }
+
+      renderWeddingCalendar();
+      tickWeddingCountdown();
+      window.setInterval(tickWeddingCountdown, 1000);
+
+      var nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+      } else {
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        nodes.forEach(function (el) {
+          obs.observe(el);
+        });
+      }
+
+      /* Ảnh cô dâu/chú rể trượt vào khi cuộn đến */
+      var couplePhotos = document.querySelectorAll(".couple__photo--groom, .couple__photo--bride");
+      if (!("IntersectionObserver" in window)) {
+        couplePhotos.forEach(function (el) {
+          el.classList.add("is-inview");
+        });
+      } else {
+        var coupleObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-inview");
+                coupleObs.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, threshold: 0.3 }
+        );
+        couplePhotos.forEach(function (el) {
+          coupleObs.observe(el);
+        });
+      }
+
+      /* Bấm ảnh gallery để xem full + tải ảnh theo hàng (giảm giật khi scroll) */
+      var lightbox = document.getElementById("gallery-lightbox");
+      var lightboxImg = document.getElementById("gallery-lightbox-img");
+      var lightboxClose = document.getElementById("gallery-lightbox-close");
+      var galleryImages = document.querySelectorAll(".gallery-section .gallery-tile__img");
+
+      var GALLERY_LOAD_CONCURRENCY = 2;
+      var galleryLoadQueue = [];
+      var galleryLoadingCount = 0;
+
+      function galleryImgUrl(img) {
+        var ds = img.getAttribute("data-src");
+        if (ds) {
+          return ds;
+        }
+        var u = img.currentSrc || img.src;
+        if (u.indexOf("data:image/gif;base64,") === 0) {
+          return "";
+        }
+        return u;
+      }
+
+      function galleryPumpLoad() {
+        while (galleryLoadingCount < GALLERY_LOAD_CONCURRENCY && galleryLoadQueue.length) {
+          var job = galleryLoadQueue.shift();
+          var img = job && job.img;
+          var url = job && job.url;
+          if (!img || !url) {
+            continue;
+          }
+          galleryLoadingCount++;
+          function finish() {
+            galleryLoadingCount--;
+            img.classList.remove("gallery-tile__img--pending");
+            img.classList.add("gallery-tile__img--ready");
+            galleryPumpLoad();
+          }
+          img.addEventListener("load", finish, { once: true });
+          img.addEventListener("error", finish, { once: true });
+          img.setAttribute("fetchpriority", "low");
+          img.setAttribute("decoding", "async");
+          img.removeAttribute("data-src");
+          img.src = url;
+        }
+      }
+
+      function galleryEnqueue(img) {
+        var url = img.getAttribute("data-src");
+        if (!url || img.dataset.galleryQueued === "1") {
+          return;
+        }
+        img.dataset.galleryQueued = "1";
+        galleryLoadQueue.push({ img: img, url: url });
+        galleryPumpLoad();
+      }
+
+      if ("IntersectionObserver" in window) {
+        var galleryIo = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && entry.target.getAttribute("data-src")) {
+                galleryEnqueue(entry.target);
+                galleryIo.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "120px 0px 140px 0px", threshold: 0.01 }
+        );
+        galleryImages.forEach(function (img) {
+          if (img.getAttribute("data-src")) {
+            galleryIo.observe(img);
+          }
+        });
+      } else {
+        galleryImages.forEach(function (img) {
+          galleryEnqueue(img);
+        });
+      }
+
+      function closeLightbox() {
+        if (!lightbox) {
+          return;
+        }
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
+
+      function openLightbox(src, alt) {
+        if (!lightbox || !lightboxImg || !src) {
+          return;
+        }
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "Ảnh cưới xem toàn màn hình";
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+      }
+
+      galleryImages.forEach(function (img) {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", function () {
+          var url = galleryImgUrl(img);
+          if (!url) {
+            return;
+          }
+          openLightbox(url, img.alt);
+        });
+      });
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener("click", closeLightbox);
+      }
+      if (lightbox) {
+        lightbox.addEventListener("click", function (evt) {
+          if (evt.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+      document.addEventListener("keydown", function (evt) {
+        if (evt.key === "Escape") {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
